@@ -1,4 +1,7 @@
 package cn.llonvne.lpl
 
-class SpringSeason {
-}
+data class SpringSeason(
+    val team: LplTeam,
+    val point: SpringSeasonPoint
+)
+

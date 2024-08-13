@@ -1,6 +1,6 @@
 package cn.llonvne.lpl
 
-enum class LplPlayoffTeam {
+enum class LplTeam {
     BLG,
     TES,
     JDG,
@@ -10,5 +10,12 @@ enum class LplPlayoffTeam {
     LNG,
     AL,
     TT,
-    LGD
+    LGD,
+    OMG,
+    WE,
+    IG,
+    RNG,
+    RA,
+    EDG,
+    UP
 }

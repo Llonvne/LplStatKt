@@ -5,23 +5,23 @@ data class AllSeason(
     val springSeason: SpringSeason?,
     val summerSeason: SummerSeason?
 ) : Comparable<AllSeason> {
-    fun totalScore(): Int {
-        return (springSeason?.point?.point ?: 0) + (summerSeason?.point?.point ?: 0)
-    }
 
-    override fun toString(): String {
-        return "${team.name} at ${totalScore()}"
-    }
+    val springScore = springSeason?.point?.point ?: 0
+    val summerScore = summerSeason?.point?.point ?: 0
+    val totalScore = springScore + summerScore
+
+//    override fun toString(): String {
+//        return "${team.name} | $totalScore"
+//    }
 
     override fun compareTo(other: AllSeason): Int {
-        if (totalScore() > other.totalScore()) {
+        if (totalScore > other.totalScore) {
             return 1
         }
-        if (totalScore() < other.totalScore()) {
+        if (totalScore < other.totalScore) {
             return -1
         }
-
-        return if ((summerSeason?.point?.point ?: 0) > (other.springSeason?.point?.point ?: 0)) {
+        return if (summerScore > other.summerScore) {
             1
         } else {
             -1

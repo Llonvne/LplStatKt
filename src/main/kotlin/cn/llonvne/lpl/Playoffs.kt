@@ -12,13 +12,21 @@ data class PlayoffMatch(
     val name: PlayoffGameName,
     val blue: PlayoffMember,
     val red: PlayoffMember
-)
+) {
+//    override fun toString(): String {
+//        return "Match"
+//    }
+}
 
 data class PlayoffMatchResult(
     val game: PlayoffMatch,
     val winner: LplTeam,
     val loser: LplTeam
-)
+) {
+//    override fun toString(): String {
+//        return "${game.name}: ${winner.name} > ${loser.name}"
+//    }
+}
 
 sealed interface PlayoffMember {
     data class SummerSeasonOf(val summerSeasonPoint: SummerSeasonPoint) : PlayoffMember
@@ -33,8 +41,8 @@ val G1Match = PlayoffMatch(G1, SummerSeasonOf(place_8), SummerSeasonOf(place_9))
 val G2Match = PlayoffMatch(G2, SummerSeasonOf(place_7), SummerSeasonOf(place_10))
 val G3Match = PlayoffMatch(G3, SummerSeasonOf(place_5), WinnerOf(G1Match))
 val G4Match = PlayoffMatch(G4, SummerSeasonOf(place_6), WinnerOf(G2Match))
-val G5Match = PlayoffMatch(G5, SummerSeasonOf(place_3), WinnerOf(G3Match))
-val G6Match = PlayoffMatch(G6, SummerSeasonOf(place_4), WinnerOf(G4Match))
+val G5Match = PlayoffMatch(G5, SummerSeasonOf(place_4), WinnerOf(G3Match))
+val G6Match = PlayoffMatch(G6, SummerSeasonOf(place_3), WinnerOf(G4Match))
 val G7Match = PlayoffMatch(G7, SummerSeasonOf(place_1), WinnerOf(G5Match))
 val G8Match = PlayoffMatch(G8, SummerSeasonOf(place_2), WinnerOf(G6Match))
 
